@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="FiveRocksGames에서 만든 웹 게임을 바로 플레이하세요.">
+  <title>FiveRocksGames</title>
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#090909;
+      --panel:#171717;
+      --text:#f7f7f7;
+      --muted:#a7a7a7;
+      --line:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg)}
+    body{
+      margin:0;
+      min-height:100svh;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .shell{
+      width:min(980px,100%);
+      margin:0 auto;
+      padding:
+        calc(34px + env(safe-area-inset-top))
+        clamp(16px,4vw,32px)
+        calc(30px + env(safe-area-inset-bottom));
+    }
+    header{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(2rem,7vw,3.6rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+      font-weight:900;
+    }
+    .subtitle{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:clamp(.82rem,2.8vw,1rem);
+      line-height:1.5;
+    }
+    .count{
+      flex:none;
+      color:#777;
+      font-weight:700;
+      font-size:.82rem;
+      padding-bottom:4px;
+    }
+    .games{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:clamp(10px,2.6vw,22px);
+    }
+    .game{
+      min-width:0;
+      display:block;
+      border-radius:20px;
+      outline:none;
+    }
+    .cover{
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:3/4;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 14px 36px rgba(0,0,0,.32);
+      transform:translateZ(0);
+      transition:transform .18s ease,filter .18s ease;
+    }
+    .game:hover .cover,.game:focus-visible .cover{transform:translateY(-4px);filter:brightness(1.08)}
+    .game:active .cover{transform:scale(.985)}
+    .game-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:6px;
+      margin-top:12px;
+      padding:0 2px;
+      font-weight:800;
+      font-size:clamp(.82rem,2.4vw,1.02rem);
+      line-height:1.25;
+      letter-spacing:-.025em;
+    }
+    .game-title span:first-child{
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .arrow{font-size:1.35em;color:#ddd;line-height:1}
+
+    /* Memory Game */
+    .memory{
+      background:
+        radial-gradient(circle at 20% 10%,rgba(255,255,255,.18),transparent 25%),
+        linear-gradient(155deg,#6f50d8 0%,#39226e 48%,#15102e 100%);
+    }
+    .memory-grid{
+      position:absolute;
+      inset:13% 12% 22%;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:7%;
+      transform:rotate(-3deg);
+    }
+    .memory-grid i{
+      display:grid;
+      place-items:center;
+      border-radius:12%;
+      background:linear-gradient(145deg,#bca9ff,#7f66d9);
+      box-shadow:0 8px 14px rgba(0,0,0,.24);
+      font-style:normal;
+      font-size:clamp(.8rem,4vw,2rem);
+    }
+    .memory-grid i:nth-child(2),
+    .memory-grid i:nth-child(6),
+    .memory-grid i:nth-child(7){background:linear-gradient(145deg,#fff0fb,#f0b4dc);color:#452655}
+    .cover-logo{
+      position:absolute;
+      left:10%;
+      right:10%;
+      bottom:8%;
+      font-weight:1000;
+      font-size:clamp(.82rem,3.5vw,1.7rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      text-transform:uppercase;
+      text-shadow:0 3px 12px rgba(0,0,0,.4);
+    }
+
+    /* Math Rain */
+    .rain{
+      background:
+        radial-gradient(circle at 78% 15%,rgba(255,255,255,.45),transparent 16%),
+        linear-gradient(180deg,#87dcff 0%,#3488d7 50%,#153b72 100%);
+    }
+    .cloud{
+      position:absolute;
+      top:9%;
+      left:12%;
+      width:72%;
+      height:14%;
+      background:rgba(255,255,255,.88);
+      border-radius:999px;
+      filter:drop-shadow(0 7px 8px rgba(20,75,130,.18));
+    }
+    .cloud:before,.cloud:after{
+      content:"";
+      position:absolute;
+      bottom:0;
+      background:inherit;
+      border-radius:50%;
+    }
+    .cloud:before{width:34%;aspect-ratio:1;left:12%;bottom:10%}
+    .cloud:after{width:43%;aspect-ratio:1;right:13%;bottom:4%}
+    .drop{
+      position:absolute;
+      display:grid;
+      place-items:center;
+      width:34%;
+      aspect-ratio:1.18/1;
+      border-radius:50% 50% 55% 55% / 38% 38% 66% 66%;
+      color:#06365d;
+      background:linear-gradient(160deg,#ebfbff,#76d8ff);
+      font-weight:1000;
+      font-size:clamp(.6rem,2.7vw,1.25rem);
+      box-shadow:0 9px 18px rgba(0,36,86,.25);
+    }
+    .drop.one{left:10%;top:38%;transform:rotate(5deg)}
+    .drop.two{right:8%;top:29%;transform:rotate(-6deg)}
+    .drop.three{left:35%;top:58%;transform:rotate(3deg)}
+
+    /* Make It Max */
+    .max{
+      background:
+        radial-gradient(circle at 12% 8%,rgba(255,255,255,.72),transparent 28%),
+        linear-gradient(160deg,#eaf8ff 0%,#a9ddff 50%,#6db8ef 100%);
+      color:#0d4168;
+    }
+    .max-title{
+      position:absolute;
+      top:9%;
+      left:9%;
+      right:9%;
+      font-size:clamp(.8rem,3.5vw,1.75rem);
+      font-weight:1000;
+      letter-spacing:-.06em;
+      line-height:.9;
+      text-transform:uppercase;
+    }
+    .tiles{
+      position:absolute;
+      left:8%;
+      right:8%;
+      top:31%;
+      bottom:13%;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:repeat(3,1fr);
+      gap:6%;
+      transform:rotate(-4deg);
+    }
+    .tile{
+      display:grid;
+      place-items:center;
+      border-radius:17%;
+      background:#fff;
+      border:2px solid rgba(35,112,164,.17);
+      box-shadow:0 8px 16px rgba(26,89,135,.18);
+      font-weight:1000;
+      font-size:clamp(.8rem,4.3vw,2rem);
+      color:#1269a5;
+    }
+    .tile.op{background:#ffda66;color:#7a4b00}
+    .tile.hot{background:#ff8e65;color:#fff}
+
+    footer{
+      margin-top:46px;
+      padding-top:24px;
+      border-top:1px solid var(--line);
+      text-align:center;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .home{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-bottom:10px;
+      color:#f1f1f1;
+      font-weight:800;
+    }
+    .home:hover{text-decoration:underline}
+    .copyright{font-size:.76rem;color:#686868}
+
+    @media (max-width:520px){
+      .shell{padding-left:16px;padding-right:16px}
+      header{margin-bottom:22px}
+      .games{gap:10px}
+      .cover{border-radius:14px}
+      .game{border-radius:14px}
+      .game-title{margin-top:9px;font-size:.78rem}
+      .memory-grid{gap:6%}
+      .memory-grid i{border-radius:9px}
+      footer{margin-top:38px}
+    }
+    @media (max-width:360px){
+      .games{gap:8px}
+      .game-title{font-size:.7rem}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <h1>FiveRocksGames</h1>
+        <p class="subtitle">웹에서 바로 플레이할 수 있는 게임들</p>
+      </div>
+      <div class="count">3 GAMES</div>
+    </header>
+
+    <section class="games" aria-label="게임 목록">
+      <a class="game" href="https://fiverocksgames.github.io/memory-game/" aria-label="Memory Game 플레이">
+        <div class="cover memory">
+          <div class="memory-grid" aria-hidden="true">
+            <i>?</i><i>★</i><i>?</i>
+            <i>●</i><i>?</i><i>●</i>
+            <i>★</i><i>?</i><i>?</i>
+          </div>
+          <div class="cover-logo">Memory<br>Game</div>
+        </div>
+        <div class="game-title"><span>Memory Game</span><span class="arrow">›</span></div>
+      </a>
+
+      <a class="game" href="https://fiverocksgames.github.io/math-rain/" aria-label="Math Rain 플레이">
+        <div class="cover rain">
+          <div class="cloud" aria-hidden="true"></div>
+          <div class="drop one" aria-hidden="true">7 + 8</div>
+          <div class="drop two" aria-hidden="true">6 × 4</div>
+          <div class="drop three" aria-hidden="true">24 ÷ 3</div>
+          <div class="cover-logo">Math<br>Rain</div>
+        </div>
+        <div class="game-title"><span>Math Rain</span><span class="arrow">›</span></div>
+      </a>
+
+      <a class="game" href="https://fiverocksgames.github.io/make-it-max/" aria-label="Make It Max 플레이">
+        <div class="cover max">
+          <div class="max-title">Make It<br>Max!</div>
+          <div class="tiles" aria-hidden="true">
+            <div class="tile hot">9</div><div class="tile op">×</div><div class="tile">8</div>
+            <div class="tile">7</div><div class="tile op">+</div><div class="tile hot">6</div>
+            <div class="tile">5</div><div class="tile op">−</div><div class="tile">4</div>
+          </div>
+        </div>
+        <div class="game-title"><span>Make It Max</span><span class="arrow">›</span></div>
+      </a>
+    </section>
+
+    <footer>
+      <a class="home" href="https://fiverocksgames.github.io/">
+        Five Rocks Games 홈페이지 <span aria-hidden="true">↗</span>
+      </a>
+      <div class="copyright">© Five Rocks Games</div>
+    </footer>
+  </main>
+</body>
+</html>
