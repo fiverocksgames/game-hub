@@ -340,13 +340,13 @@
     const shareButton=document.getElementById('shareButton');
     const shareStatus=document.getElementById('shareStatus');
     const canonicalUrl='https://fiverocksgames.github.io/game-hub/';
-    const shareText='지능·학습·퍼즐 게임을 FiveRocks GameHub에서 즐겨보세요.';
+    const shareUrl=canonicalUrl+'?share=20260831-kakao-preview-1';
     async function copyShareFallback(){
-      await navigator.clipboard.writeText(shareText+' '+canonicalUrl);
-      if(shareStatus) shareStatus.textContent='공유할 수 없어 텍스트와 링크를 복사했습니다.';
+      await navigator.clipboard.writeText(shareUrl);
+      if(shareStatus) shareStatus.textContent='미리보기 호환을 위해 링크만 복사했습니다.';
     }
     shareButton?.addEventListener('click',async()=>{
-      const data={title:'FiveRocks GameHub',text:shareText,url:canonicalUrl};
+      const data={url:shareUrl};
       if(navigator.share){
         try{await navigator.share(data);return}
         catch(error){if(error?.name==='AbortError') return}
