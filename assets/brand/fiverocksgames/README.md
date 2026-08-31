@@ -1,5 +1,7 @@
 # FiveRocksGames brand assets
 
-Approved web brand set. Palette: #4DA3FF, #FFD166, #FF7B6B, #7BCB8B, #2E9C6A; dark navy #072243.
+Approved public GameHub copies. Canonical source: `fiverocks-dev/assets/branding/fiverocksgames/`.
 
-Source/provenance: company-supplied logo artwork, recolored and approved by the FiveRocksGames project lead on 2026-08-30. The social preview artwork was generated specifically for FiveRocksGames and approved in the same review.
+Final palette approved 2026-08-31: #8CC63F, #2F80ED, #FFC928, #FF4B3E, #B45AC9; navy #071B3E; dark navy #061B3C.
+
+`og-gamehub-approved-20260831.jpg` is the approved 1200×630 GameHub social preview.
