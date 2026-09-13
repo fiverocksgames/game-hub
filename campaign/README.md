@@ -2,6 +2,13 @@
 
 This directory contains campaign planning and production documents for Game Hub promotion and standalone promotional-video projects for individual FiveRocks Games titles.
 
+## Campaign roadmap
+
+- Production roadmap: `ROADMAP.md`
+- Current sequence: Math Fighter standalone pilot -> Game Hub brand film -> remaining standalone videos -> production-template standardization
+
+The roadmap defines **when to validate and standardize the production process**. It should not be treated as a requirement that all videos share the same creative treatment.
+
 ## Game Hub brand campaign
 
 - Canonical brief: `CAMPAIGN.md`
