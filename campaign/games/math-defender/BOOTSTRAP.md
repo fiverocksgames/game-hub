@@ -2,19 +2,25 @@
 
 ## Project role
 
-Create a standalone promotional video for **Math Defender** that communicates its strategy-RPG identity and the relationship between math performance and tactical agency.
+Create a standalone promotional video for **Math Defender** using the current development-repository gameplay and validated vertical-slice behavior.
 
 Source project: `fiverocks-dev/math-defender`
 
-## Evidence-grounded game definition
+## 1. Game as the player experiences it
 
-Math Defender is an educational strategy RPG whose stage structure connects math, scouting, preparation, and defense.
+### Player-facing game definition
+
+Math Defender is a strategy-defense game in which the player solves math problems to earn preparation resources, scouts the incoming enemies, chooses heroes, deploys them, and then watches the defensive battle play out.
+
+The core stage loop is:
+
+`solve problems -> earn preparation resources -> inspect enemies -> choose/deploy heroes -> start battle -> see the result`
 
 Current canonical stage loop:
 
 `Problem -> Scout -> Preparation -> Battle -> Result`
 
-Current vertical-slice direction:
+Current vertical-slice behavior includes:
 
 - A stage presents math questions one at a time.
 - Correct answers grant preparation currency.
@@ -26,28 +32,57 @@ Current vertical-slice direction:
 - Math result alone must not determine victory; hero choice and deployment must matter.
 - Result connects math performance, spending, and battle outcome.
 
-A first playable vertical slice has been merged to the development repository's main baseline. Long-term GameBible progression should not be shown as already implemented without separate verification.
+### What should be obvious to a new player
 
-## Core promotional hook
+Within a few seconds, the viewer should understand:
 
-**Solve for options. Win with strategy.**
+1. solving math gives the player resources,
+2. those resources are spent on hero deployment,
+3. the player must inspect the enemy before choosing a setup,
+4. battle outcome depends on the strategy chosen.
+
+This section defines the game from the player's point of view.
+
+## 2. Product / design intent
+
+The project's defining design principle is that mathematics should create **strategic agency**, not directly become combat power.
+
+Important design characteristics include:
+
+- correct answers create preparation currency rather than a direct damage multiplier,
+- Scout gives information that should influence deployment,
+- preparation is a real choice under resource constraints,
+- functionally different heroes make matchup and placement matter,
+- battle acts as feedback on the player's prior strategic decisions,
+- math performance affects the option space, but does not automatically determine victory.
+
+A first playable vertical slice has been merged to the development repository's main baseline. Long-term GameBible progression must remain separate from currently implemented play.
+
+## 3. Promotional strategy
+
+### Current promotional hook
+
+Working hook:
+
+**Solve. Scout. Deploy. Defend.**
 
 Alternative Korean framing:
 
-**문제를 풀어 힘을 얻는 게 아니라, 선택지를 얻는다.**
+**풀고, 보고, 배치하고, 막아라.**
 
-The strongest conceptual chain is:
+The strongest visual chain is:
 
-`solve -> earn -> scout -> choose -> deploy -> defend`
+`correct answer -> resource gained -> enemy information -> hero choice -> deployment -> battle consequence`
 
-## Audience experience to communicate
+### Campaign experience to communicate
 
-The viewer should understand that:
+Priority order:
 
-1. math creates resources and strategic possibility,
-2. the player must read the enemy before committing resources,
-3. the important decision is which hero to deploy and where,
-4. the resulting battle proves whether that choice worked.
+1. Explain that solving problems gives the player preparation resources.
+2. Show Scout so the viewer understands there is information to act on.
+3. Show a real choice between heroes or placements.
+4. Use Battle as the payoff that proves the preparation mattered.
+5. Only after the core loop is understood, emphasize the deeper philosophy that math creates options rather than direct attack power.
 
 ## Hero footage
 
@@ -56,18 +91,18 @@ Priority capture moments:
 1. A correct answer visibly increasing preparation currency.
 2. Scout revealing enemy type/count plus one meaningful trait.
 3. Two tactically distinct hero choices visible at the same time.
-4. Player dragging/selecting and deploying a hero to a legal position.
+4. Player selecting and deploying a hero to a legal position.
 5. Start Battle transition.
 6. Automatic battle where the chosen setup visibly succeeds or struggles.
 7. Result screen connecting math accuracy, economy, and battle result.
 
-A particularly strong comparison shot would hold the same stage and math result constant while showing two different preparations producing visibly different outcomes, if current build support and capture time allow it.
+If supported by the current build, a strong comparison shot would show the same stage with different preparations leading to visibly different battle results.
 
 ## Creative rhythm
 
 Recommended standalone video rhythm:
 
-`SOLVE -> READ THE ENEMY -> BUILD YOUR PLAN -> WATCH IT PLAY OUT`
+`SOLVE -> EARN -> SCOUT -> CHOOSE -> DEPLOY -> DEFEND`
 
 This video should be slower and more strategic than Math Fighter or Math Rain. Do not cut so rapidly that Scout and Preparation become unreadable.
 
@@ -93,16 +128,22 @@ Do not simplify the game to `correct answer -> more attack power`; this contradi
 
 ## Candidate taglines
 
+Game-explaining options:
+
 - **Solve. Scout. Deploy. Defend.**
+- **Solve to prepare. Choose how to defend.**
+- **풀고, 보고, 배치하고, 막아라.**
+
+Design-philosophy options:
+
 - **Math gives you options. Strategy wins the battle.**
-- **Earn the plan. Build the defense.**
-- **풀어서 얻고, 보고 판단하고, 배치해서 막아라.**
+- **문제를 풀어 선택지를 만들고, 전략으로 승부한다.**
 
 These are working creative options, not approved final copy.
 
 ## Recommended first deliverable
 
-Create a 25-30 second standalone synopsis/storyboard centered on one full stage decision chain from Problem through Battle, with Result as the payoff.
+Create a 25-30 second standalone synopsis/storyboard centered on one complete stage decision chain from Problem through Battle, with Result as the payoff.
 
 ## Re-verification before production
 
