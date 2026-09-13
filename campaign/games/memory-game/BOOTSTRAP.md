@@ -2,13 +2,19 @@
 
 ## Project role
 
-Create a standalone promotional video for **Memory Game** that emphasizes recall, turn pressure, and competitive play rather than presenting it as a generic solitary memory exercise.
+Create a standalone promotional video for **Memory Game** based on its current implemented competitive matching gameplay.
 
 Source project: `fiverocks-dev/memory-game`
 
-## Evidence-grounded game definition
+## 1. Game as the player experiences it
 
-Memory Game is a browser-based competitive matching game built around remembering card positions.
+### Player-facing game definition
+
+Memory Game is a card-matching game in which the player flips cards, remembers where each image is, and tries to collect more matching pairs than the opponent.
+
+The basic player loop is:
+
+`flip cards -> remember positions -> choose two cards -> make a pair -> score -> continue or pass the turn`
 
 Current implementation behavior:
 
@@ -23,49 +29,80 @@ Current implementation behavior:
 - Multiple board sizes and card themes are supported.
 - A limited hint system can temporarily reveal an unmatched pair.
 
-The important promotional distinction is that memory is not only a passive cognitive exercise; it creates a competitive advantage because a successful recall lets the player keep control of the turn.
+### What should be obvious to a new player
 
-## Core promotional hook
+Within a few seconds, the viewer should understand:
 
-**Remember more. Keep the turn.**
+1. cards are hidden and must be remembered,
+2. the goal is to find matching pairs,
+3. matching scores points,
+4. a successful match lets the player keep playing,
+5. the game is competitive rather than only a solitary memory exercise.
+
+## 2. Product / design intent
+
+The current design turns memory performance into turn control and score advantage.
+
+Important design characteristics include:
+
+- remembering positions directly improves the player's ability to score,
+- a successful pair preserves the player's turn,
+- a failed pair transfers control to the opponent,
+- score competition creates tension beyond simple completion,
+- board size, themes, AI difficulty, and hints vary the challenge without changing the core memory loop.
+
+The turn-retention rule is an important competitive system, but it is not the entire definition of the game.
+
+## 3. Promotional strategy
+
+### Current promotional hook
+
+Working hook:
+
+**See it. Remember it. Match it.**
 
 Alternative Korean framing:
 
-**기억하면, 내 턴이 계속된다.**
+**보고, 기억하고, 짝을 맞춰라.**
 
 The strongest visual chain is:
 
-`see cards -> cards close -> remember positions -> choose pair -> match -> score -> keep turn`
+`cards revealed -> cards close -> remember -> choose two positions -> pair matched -> score`
 
-## Audience experience to communicate
+After the game is understood, the retained-turn rule can become the escalation beat:
 
-The viewer should understand that:
+`match -> score -> same player goes again`
 
-1. the player must retain card positions,
-2. a correct memory produces an immediate competitive reward,
-3. turns and score create tension beyond simple pair matching,
-4. the game can be played against another person or AI.
+### Campaign experience to communicate
+
+Priority order:
+
+1. Explain the familiar card-memory interaction immediately.
+2. Show that the objective is to collect matching pairs.
+3. Make the opponent/score context visible.
+4. Then show that a correct memory keeps the turn and creates competitive momentum.
+5. Use AI, hints, themes, or board-size variety only as secondary features.
 
 ## Hero footage
 
 Priority capture moments:
 
 1. A short reveal of several memorable cards.
-2. Cards closing before the audience has fully processed them.
+2. Cards closing.
 3. Player selecting two remembered positions.
 4. Successful pair match and score increase.
 5. Immediate continuation of the same player's turn.
 6. Contrast shot: failed pair, cards close, turn changes.
 7. Two-player or AI score race near the end of a board.
-8. Optional hint reveal as a secondary feature, not the main hook.
+8. Optional hint or board/theme variation as secondary footage.
 
 ## Creative rhythm
 
 Recommended standalone video rhythm:
 
-`LOOK -> HIDE -> REMEMBER -> PICK -> MATCH -> KEEP GOING`
+`LOOK -> HIDE -> REMEMBER -> PICK -> MATCH -> SCORE -> GO AGAIN`
 
-This video should use micro-pauses. The audience needs enough time to attempt remembering alongside the player; excessive cutting would remove the appeal of the mechanic.
+Use micro-pauses so the audience can try remembering alongside the player.
 
 ## Visual identity hypothesis
 
@@ -83,22 +120,30 @@ Do not claim without current verification:
 - cognitive-training efficacy,
 - online multiplayer,
 - matchmaking or network competition,
-- unsupported AI sophistication beyond the implemented difficulty behaviors,
+- unsupported AI sophistication beyond implemented difficulty behaviors,
 - final release/platform status not confirmed at production time.
 
 ## Candidate taglines
 
-- **See it once. Remember it when it matters.**
-- **Match it. Score it. Keep your turn.**
+Game-explaining options:
+
+- **See it. Remember it. Match it.**
+- **Find the pairs. Beat the opponent.**
+- **보고, 기억하고, 짝을 맞춰라.**
+
+Competitive/escalation options:
+
+- **Remember more. Keep the turn.**
+- **기억하면, 내 턴이 계속된다.**
 - **Memory wins the next move.**
-- **보고, 기억하고, 먼저 맞춰라.**
-- **기억한 사람이 한 번 더 한다.**
 
 These are working creative options, not approved final copy.
 
 ## Recommended first deliverable
 
-Create a 20-25 second standalone synopsis/storyboard using one miniature competitive story: reveal -> recall -> successful pair -> retained turn -> score race -> final pair.
+Create a 20-25 second standalone synopsis/storyboard with this order:
+
+`core matching mechanic -> score context -> retained-turn advantage -> competitive finish`
 
 ## Re-verification before production
 
