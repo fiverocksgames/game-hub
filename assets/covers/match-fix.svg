@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="title desc">
+<title id="title">Match Fix</title><desc id="desc">A matchstick puzzle game with a warm cream puzzle board against a deep brown background</desc>
+<defs><radialGradient id="bg" cx=".75" cy=".15" r="1"><stop stop-color="#814221"/><stop offset=".58" stop-color="#3b2119"/><stop offset="1" stop-color="#1c171b"/></radialGradient><linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#f4dfc1"/></linearGradient><linearGradient id="wood" x2="0" y2="1"><stop stop-color="#f2c47d"/><stop offset=".6" stop-color="#cf9650"/><stop offset="1" stop-color="#b7773e"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#170a08" flood-opacity=".4"/></filter><g id="h"><rect x="0" y="-8" width="64" height="16" rx="8" fill="url(#wood)"/><circle cx="64" cy="0" r="9" fill="#ca3430"/><circle cx="62" cy="-2.5" r="3" fill="#e86d55"/></g><g id="v"><rect x="-8" y="0" width="16" height="64" rx="8" fill="url(#wood)"/><circle cx="0" cy="64" r="9" fill="#ca3430"/></g></defs>
+<rect width="600" height="800" fill="url(#bg)"/>
+<circle cx="535" cy="80" r="140" fill="#be792b" opacity=".09"/>
+<g filter="url(#shadow)"><rect x="40" y="91" width="520" height="457" rx="34" fill="#8d5b32" stroke="#d79d50" stroke-width="5"/><rect x="52" y="103" width="496" height="433" rx="29" fill="url(#paper)" stroke="#ffe1a4" stroke-width="4"/></g>
+<text x="300" y="148" text-anchor="middle" fill="#7c523a" font-family="Arial,sans-serif" font-weight="700" letter-spacing="3" font-size="17">MATCHSTICK PUZZLE</text>
+<rect x="99" y="173" width="402" height="57" rx="28" fill="#f5e8d5" stroke="#dcc4a5"/>
+<text x="300" y="209" text-anchor="middle" fill="#63402d" font-family="Arial,sans-serif" font-size="23" font-weight="800">MOVE 1 OR 2 MATCHES</text>
+<rect x="79" y="258" width="442" height="236" rx="25" fill="#fffbf4" stroke="#e9d8c4"/>
+<g transform="translate(103 318) scale(.72)" filter="url(#shadow)">
+<!-- 6 -->
+<use href="#h" x="0" y="0"/><use href="#h" x="0" y="91"/><use href="#h" x="0" y="182"/><use href="#v" x="0" y="0"/><use href="#v" x="0" y="91"/><use href="#v" x="64" y="91"/>
+<!-- + -->
+<use href="#h" x="100" y="91"/><use href="#v" x="132" y="59"/>
+<!-- 4 -->
+<use href="#v" x="225" y="0"/><use href="#v" x="289" y="0"/><use href="#v" x="289" y="91"/><use href="#h" x="225" y="91"/>
+<!-- equals -->
+<use href="#h" x="334" y="74"/><use href="#h" x="334" y="113"/>
+<!-- 4 -->
+<use href="#v" x="437" y="0"/><use href="#v" x="501" y="0"/><use href="#v" x="501" y="91"/><use href="#h" x="437" y="91"/>
+</g>
+<text x="51" y="648" fill="#fff0ca" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-2" font-size="97">MATCH</text>
+<text x="51" y="756" fill="#ffc46c" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-2" font-size="118">FIX</text>
+</svg>
